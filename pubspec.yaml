@@ -4,6 +4,13 @@ version: 0.4.5
 homepage: https://github.com/vento007/tiny_ecs
 repository: https://github.com/vento007/tiny_ecs
 
+topics:
+  - ecs
+  - entity-component-system
+  - game-engine
+  - architecture
+  - data-processing
+
 environment:
   sdk: ^3.0.0
 
