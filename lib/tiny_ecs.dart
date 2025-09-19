@@ -5,6 +5,9 @@ library tiny_ecs;
 typedef Entity = int;
 
 /// Base class for all components - just a marker interface
+///
+/// All components in the ECS must extend this class.
+/// Components should be simple data containers without behavior.
 abstract class Component {}
 
 class QueryResults {
@@ -39,6 +42,9 @@ class QueryResult3<T1 extends Component, T2 extends Component,
   QueryResult3(this.entity, this.component1, this.component2, this.component3);
 }
 
+/// A fluent query builder for complex entity queries
+///
+/// Allows building queries with component inclusions and exclusions.
 class QueryBuilder {
   final World world;
   final Set<Type> _withTypes = {}; // Components that must be present
@@ -46,18 +52,22 @@ class QueryBuilder {
 
   QueryBuilder._internal(this.world);
 
+  /// Create a new query builder for the given world
   QueryBuilder(this.world);
 
+  /// Add a component type that entities must have
   QueryBuilder withComponent<T extends Component>() {
     _withTypes.add(T);
     return this;
   }
 
+  /// Add a component type that entities must NOT have
   QueryBuilder without<T extends Component>() {
     _withoutTypes.add(T);
     return this;
   }
 
+  /// Execute the query and return matching entities
   Iterable<Entity> execute() {
     // Fast path: No exclusions - use existing optimized method
     if (_withoutTypes.isEmpty) {
