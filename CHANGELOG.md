@@ -1,3 +1,7 @@
+## 0.4.6
+
+* Comprehensive documentation rewrite with tutorial-first approach and complete usage examples
+
 ## 0.4.5
 
 ### Features

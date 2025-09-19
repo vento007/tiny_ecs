@@ -1,8 +1,9 @@
 name: tiny_ecs
 description: A minimal, functional Entity Component System (ECS) for applications that need to manage complex entities with dynamic component sets
-version: 0.4.5
+version: 0.4.6
 homepage: https://github.com/vento007/tiny_ecs
 repository: https://github.com/vento007/tiny_ecs
+issue_tracker: https://github.com/vento007/tiny_ecs/issues
 
 topics:
   - ecs
